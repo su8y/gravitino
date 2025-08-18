@@ -79,11 +79,9 @@ class GenericModelCatalog extends BaseSchemaCatalog implements ModelCatalog {
     checkModelNamespace(namespace);
 
     Namespace modelFullNs = modelFullNamespace(namespace);
-    EntityListResponse resp =
-        restClient.get(
+    EntityListResponse resp = restClient.get(
             formatModelRequestPath(modelFullNs),
-            EntityListResponse.class,
-            Collections.emptyMap(),
+            EntityListResponse.class, Collections.emptyMap(),
             ErrorHandlers.modelErrorHandler());
     resp.validate();
 
